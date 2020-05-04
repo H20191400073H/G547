@@ -1,6 +1,7 @@
-obj-m := main.o
+obj-m := assignment_3.o
 
 all:
-	make -C/lib/modules/$(shell uname -r)/build/ M=$(shell pwd) modules
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 clean:
-	rm -rf *.o *.mod.c *.symvers *.order *.mod
+	find . -type f | xargs -n 5 touch
+	rm -rf $(OBJS)
